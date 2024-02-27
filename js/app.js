@@ -32,15 +32,12 @@ function main() {
   copyRgbColor.onclick = copyColor;
 
   const displayHexColor = ({ red, green, blue }) => {
-    console.log(red);
-    const hexRed = Number(red).toString(16).toUpperCase();
-    const hexGreen = Number(green).toString(16).toUpperCase();
-    const hexBlue = Number(blue).toString(16).toUpperCase();
+    const hexRed = Number(red).toString(16).padStart(2, 0).toUpperCase();
+    const hexGreen = Number(green).toString(16).padStart(2, 0).toUpperCase();
+    const hexBlue = Number(blue).toString(16).padStart(2, 0).toUpperCase();
 
     const hexColor = `#${hexRed}${hexGreen}${hexBlue}`;
-    console.log(hexColor.length);
-    hexInput.placeholder =
-      hexColor.length === 7 ? hexColor : hexColor.padEnd(7, 0);
+    hexInput.placeholder = hexColor;
   };
 
   const displayRgbColor = () => {
@@ -78,4 +75,3 @@ function main() {
     displayHexColor({ red, green, blue });
   });
 }
-
