@@ -48,10 +48,28 @@
           class="rounded-md h-[180px]"
         ></div>
 
-        <div class="mt-8">
+        <div class="mt-8 flex items-center justify-between">
           <div class="flex items-center gap-1">
-          <input id="rbg-input" disabled class=" py-3 px-5 rounded-md bg-black/70 placeholder:text-white" type="text" placeholder="rgb(255, 255, 255)">
-          <button id="rgb-copy-btn" class="btn text-white">Copy</button>
+            <input
+              id="rbg-input"
+              disabled
+              class="py-3 px-5 rounded-md bg-black/70 placeholder:text-white"
+              type="text"
+              placeholder="rgb(255, 255, 255)"
+            />
+            <button id="rgb-copy-btn" class="btn text-white">Copy</button>
+          </div>
+          <div id="hex-container">
+            <div class="flex items-center gap-1">
+              <input
+                id="hex-input"
+                disabled
+                class="py-3 px-5 rounded-md bg-black/70 placeholder:text-white"
+                type="text"
+                placeholder="#FFFFFF"
+              />
+              <button id="hex-copy-btn" class="btn text-white">Copy</button>
+            </div>
           </div>
         </div>
 
@@ -96,8 +114,7 @@
         </div>
         <!-- button -->
         <div class="flex items-center justify-center gap-5 mt-10">
-          <button class="btn btn-wide">Copy</button>
-          <button class="btn btn-wide bg-success">Hex</button>
+          <!-- <button id="hex-color-converter" class="btn btn-wide">Convert To Hex Color</button> -->
         </div>
       </div>
     </section>

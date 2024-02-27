@@ -13,10 +13,12 @@ function main() {
   input-range`);
   const rgb = id("rbg-input");
   const copyRgbColor = id("rgb-copy-btn");
+  const hexInput = id("hex-input");
+  // const hexColorConverter = id("hex-color-converter");
 
+  // copy rgb color on copy button click
   const copyColor = async () => {
     const color = rgb.placeholder;
-    console.log(color);
     try {
       await navigator.clipboard.writeText(color);
       copyRgbColor.innerText = "Copied!";
@@ -29,10 +31,22 @@ function main() {
   };
   copyRgbColor.onclick = copyColor;
 
-  function showRgbColor() {
+  const displayHexColor = ({ red, green, blue }) => {
+    console.log(red);
+    const hexRed = Number(red).toString(16).toUpperCase();
+    const hexGreen = Number(green).toString(16).toUpperCase();
+    const hexBlue = Number(blue).toString(16).toUpperCase();
+
+    const hexColor = `#${hexRed}${hexGreen}${hexBlue}`;
+    console.log(hexColor.length);
+    hexInput.placeholder =
+      hexColor.length === 7 ? hexColor : hexColor.padEnd(7, 0);
+  };
+
+  const displayRgbColor = () => {
     const rgbaColor = display.style.backgroundColor;
     rgb.placeholder = rgbaColor;
-  }
+  };
 
   redInput.addEventListener("change", function () {
     const red = this.value;
@@ -40,7 +54,8 @@ function main() {
     const blue = getInputValue("blue");
     const rgbColor = `rgb(${red}, ${green}, ${blue})`;
     display.style.backgroundColor = rgbColor;
-    showRgbColor();
+    displayRgbColor();
+    displayHexColor({ red, green, blue });
   });
 
   greenInput.addEventListener("change", function () {
@@ -49,7 +64,8 @@ function main() {
     const blue = getInputValue("blue");
     const rgbColor = `rgb(${red}, ${green}, ${blue})`;
     display.style.backgroundColor = rgbColor;
-    showRgbColor();
+    displayRgbColor();
+    displayHexColor({ red, green, blue });
   });
 
   blueInput.addEventListener("click", function () {
@@ -58,7 +74,8 @@ function main() {
     const blue = this.value;
     const rgbColor = `rgb(${red}, ${green},${blue})`;
     display.style.backgroundColor = rgbColor;
-    showRgbColor();
+    displayRgbColor();
+    displayHexColor({ red, green, blue });
   });
 }
 
