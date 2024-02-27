@@ -31,6 +31,58 @@
     </style>
   </head>
   <body>
+    <section
+      class="container mx-auto min-h-screen flex items-center justify-center"
+    >
+      <div class="w-full max-w-4xl bg-slate-200 rounded-lg shadow-xl p-8">
+        <div class="bg-sky-600 w-5/6 mx-auto rounded-md h-[160px]"></div>
+
+        <!-- slider -->
+        <div class="mt-10 space-y-5">
+          <div>
+            <label for="red">RED</label> <br />
+            <input
+              class="w-full"
+              type="range"
+              value="0"
+              max="255"
+              step="1"
+              min="0"
+              id="red"
+            />
+          </div>
+          <div>
+            <label for="green">GREEN</label> <br />
+            <input
+              class="w-full"
+              type="range"
+              value="0"
+              max="255"
+              step="1"
+              min="0"
+              id="green"
+            />
+          </div>
+          <div>
+            <label for="blue">BLUE</label> <br />
+            <input
+              class="w-full"
+              type="range"
+              value="0"
+              max="255"
+              step="1"
+              min="0"
+              id="blue"
+            />
+          </div>
+        </div>
+        <!-- button -->
+        <div class="flex items-center justify-center gap-5 mt-10">
+          <button class="btn btn-wide">Copy</button>
+          <button class="btn btn-wide bg-success">Hex</button>
+        </div>
+      </div>
+    </section>
     <script src="./js/utility.js"></script>
     <script src="./js/app.js"></script>
   </body>
