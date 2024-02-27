@@ -11,7 +11,23 @@ function main() {
   const allInputs = document.getElementsByClassName(`input-range
   input-range
   input-range`);
-  const rgb = id("rbg");
+  const rgb = id("rbg-input");
+  const copyRgbColor = id("rgb-copy-btn");
+
+  const copyColor = async () => {
+    const color = rgb.placeholder;
+    console.log(color);
+    try {
+      await navigator.clipboard.writeText(color);
+      copyRgbColor.innerText = "Copied!";
+      setTimeout(() => {
+        copyRgbColor.innerText = "Copy";
+      }, 3000);
+    } catch (err) {
+      console.error("Failed to copy: ", err);
+    }
+  };
+  copyRgbColor.onclick = copyColor;
 
   function showRgbColor() {
     const rgbaColor = display.style.backgroundColor;
