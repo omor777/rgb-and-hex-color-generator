@@ -8,28 +8,40 @@ function main() {
   const redInput = id("red");
   const greenInput = id("green");
   const blueInput = id("blue");
-  const allInputs = document.getElementsByClassName(`input-range
-  input-range
-  input-range`);
   const rgb = id("rbg-input");
-  const copyRgbColor = id("rgb-copy-btn");
   const hexInput = id("hex-input");
-  // const hexColorConverter = id("hex-color-converter");
+  const copyRgbColorBtn = id("rgb-copy-btn");
+  const copyHexColorBtn = id("hex-copy-btn");
 
   // copy rgb color on copy button click
-  const copyColor = async () => {
+  const copyRgbColor = async () => {
     const color = rgb.placeholder;
     try {
       await navigator.clipboard.writeText(color);
-      copyRgbColor.innerText = "Copied!";
+      copyRgbColorBtn.innerText = "Copied!";
       setTimeout(() => {
-        copyRgbColor.innerText = "Copy";
+        copyRgbColorBtn.innerText = "Copy";
       }, 3000);
     } catch (err) {
       console.error("Failed to copy: ", err);
     }
   };
-  copyRgbColor.onclick = copyColor;
+  copyRgbColorBtn.addEventListener("click", copyRgbColor);
+
+  const copyHexColor = async () => {
+    const hexColor = hexInput.placeholder;
+    try {
+      await navigator.clipboard.writeText(hexColor);
+      copyHexColorBtn.innerText = "Copied";
+      setTimeout(() => {
+        copyHexColorBtn.innerText = "Copy";
+      }, 3000);
+    } catch (err) {
+      console.error("Failed to copy: ", err);
+    }
+  };
+
+  copyHexColorBtn.addEventListener("click", copyHexColor);
 
   const displayHexColor = ({ red, green, blue }) => {
     const hexRed = Number(red).toString(16).padStart(2, 0).toUpperCase();
@@ -75,3 +87,4 @@ function main() {
     displayHexColor({ red, green, blue });
   });
 }
+
