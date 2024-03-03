@@ -18,7 +18,7 @@ function main() {
     const color = rgb.placeholder;
     try {
       await navigator.clipboard.writeText(color);
-      copyRgbColorBtn.innerText = "Copied!";
+      copyRgbColorBtn.innerText = "Copied";
       setTimeout(() => {
         copyRgbColorBtn.innerText = "Copy";
       }, 3000);

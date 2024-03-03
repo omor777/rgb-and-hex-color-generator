@@ -48,67 +48,96 @@
           class="rounded-md h-[180px]"
         ></div>
 
-        <div class="mt-8 flex items-center justify-between">
-          <div class="flex items-center gap-1">
-            <input
-              id="rbg-input"
-              disabled
-              class="py-3 px-5 rounded-md bg-black/70 placeholder:text-white"
-              type="text"
-              placeholder="rgb(255, 255, 255)"
-            />
-            <button id="rgb-copy-btn" class="btn text-white">Copy</button>
+        <div
+          class="mt-8 flex flex-col gap-4 md:flex-row items-center justify-between"
+        >
+          <div>
+            <label
+              class="input input-bordered flex items-center gap-2 rounded-full border-none shadow pr-0 h-auto bg-white"
+            >
+              <input
+                id="rbg-input"
+                disabled
+                type="text"
+                class="grow"
+                placeholder="rgb(255, 255, 255)"
+              />
+              <button
+                id="rgb-copy-btn"
+                class="btn btn-info w-24 rounded-full text-white"
+              >
+                Copy
+              </button>
+            </label>
           </div>
-          <div id="hex-container">
-            <div class="flex items-center gap-1">
+          <div>
+            <label
+              class="input input-bordered flex items-center gap-2 rounded-full border-none shadow pr-0 h-auto bg-white"
+            >
               <input
                 id="hex-input"
                 disabled
-                class="py-3 px-5 rounded-md bg-black/70 placeholder:text-white"
                 type="text"
+                class="grow"
                 placeholder="#FFFFFF"
               />
-              <button id="hex-copy-btn" class="btn text-white">Copy</button>
-            </div>
+              <button
+                id="hex-copy-btn"
+                class="btn btn-success w-24 rounded-full text-white"
+              >
+                Copy
+              </button>
+            </label>
           </div>
         </div>
 
         <!-- slider -->
         <div class="mt-10 space-y-5">
           <div>
-            <label for="red">RED</label> <br />
+            <label class="mb-2 inline-block text-red-500 font-bold" for="red"
+              >RED</label
+            >
+            <br />
             <input
-              class="w-full cursor-pointer input-range"
-              type="range"
-              value="0"
-              max="255"
-              step="1"
-              min="0"
               id="red"
+              type="range"
+              step="1"
+              min="0"
+              max="255"
+              value="0"
+              class="range range-error"
             />
           </div>
           <div>
-            <label for="green">GREEN</label> <br />
+            <label
+              class="mb-2 inline-block text-green-500 font-bold"
+              for="green"
+              >GREEN</label
+            >
+            <br />
             <input
-              class="w-full cursor-pointer input-range"
-              type="range"
-              value="0"
-              max="255"
-              step="1"
-              min="0"
               id="green"
+              type="range"
+              step="1"
+              min="0"
+              max="255"
+              value="0"
+              class="range range-success"
             />
           </div>
           <div>
-            <label for="blue">BLUE</label> <br />
+            <label class="mb-2 inline-block text-sky-500 font-bold" for="blue"
+              >BLUE</label
+            >
+            <br />
             <input
-              class="w-full cursor-pointer input-range"
+              id="blue"
               type="range"
-              value="0"
-              max="255"
               step="1"
               min="0"
-              id="blue"
+              max="255"
+              value="0"
+              class="range range-info"
             />
           </div>
         </div>
